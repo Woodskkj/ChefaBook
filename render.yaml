@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: chefabook
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn main:app

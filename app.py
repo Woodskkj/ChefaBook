@@ -540,11 +540,17 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    # Garante que a pasta de uploads exista
+    # Executa localmente com debug
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])
-    
     criar_tabelas()
     verificar_coluna_imagem()
     app.run(debug=True)
+else:
+    # Executa no Render (sem debug)
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
+    criar_tabelas()
+    verificar_coluna_imagem()
+
 
